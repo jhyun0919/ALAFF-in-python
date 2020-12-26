@@ -4,3 +4,7 @@
 Assignments/__pycache__/
 
 Assignments/.ipynb_checkpoints/
+
+.idea/
+
+.vscode/
