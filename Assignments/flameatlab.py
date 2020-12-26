@@ -31,7 +31,7 @@ def trim_matrix_dimension(matrix, wise=None):
     """
     assert wise in ["ROW", "COL", None]
 
-    if type(matrix) == np.int64:
+    if type(matrix) == np.int64 or type(matrix) == np.float64:
         matrix = np.expand_dims(np.expand_dims(matrix, axis=0), axis=1)
     elif type(matrix) == np.ndarray:
         try:
@@ -191,8 +191,8 @@ def FLA_Cont_with_3x3_to_2x2(A00, A01, A02, A10, A11, A12, A20, A21, A22, quadra
 
     if quadrant == "FLA_TL":
         # ATL
-        if m00 + m01 == 0 or n00 + n01 == 0:
-            ATL = np.zeros((m00 + m01, n00 + n01))
+        if m00 + m10 == 0 or n00 + n01 == 0:
+            ATL = np.zeros((m00 + m10, n00 + n01))
         else:
             ATL = np.vstack((np.hstack((A00, A01)), np.hstack((A10, A11))))
         # ATR
